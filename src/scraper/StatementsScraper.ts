@@ -139,7 +139,7 @@ const run = async (headless: boolean = false, timeout = 0) => {
                     text += val + sep;
                 }
 
-                problem[classes[i]] = strFormat(text);
+                problem[classes[i].replace('-', '_')] = strFormat(text);
             }
 
             const pNode = await body.$x('div[not(@class)]/child::*');
