@@ -1,2 +1,2 @@
-# Codeforces Cheating Detector
+# Problem Repeatition Detector
 
