@@ -65,10 +65,7 @@ export default class StatementScrapper{
         const page = await browser.newPage();
         
         await page.goto(loginUrl, { timeout: 0 });
-        console.log(this.cfPassword);
-        console.log(this.cfUsername);
         await page.type('input[name="handleOrEmail"]', this.cfUsername);
-        console.log("**");
         await page.type('input[name="password"]', this.cfPassword);
         await page.click('input[type="submit"]');
         await page.waitForNavigation({ waitUntil: 'load', timeout: 0 });
