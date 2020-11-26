@@ -1,0 +1,886 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!-- saved from url=(0129)https://polygon.codeforces.com/generalInfo?ccid=2747baf0d226be0c59e09c7591eccd99&session=33ced7a433597f5219b74d713d0ecc040b851991 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="ccid" content="2747baf0d226be0c59e09c7591eccd99">
+    <meta http-equiv="expires" content="-1">
+    
+    <link rel="stylesheet" type="text/css" href="./General Info - Polygon_files/common.css">
+    <link rel="stylesheet" type="text/css" href="./General Info - Polygon_files/messagebox.css">
+    <link rel="stylesheet" type="text/css" href="./General Info - Polygon_files/jquery.autocomplete.css">
+    <link rel="stylesheet" type="text/css" href="./General Info - Polygon_files/jquery.drafts.css">
+    <link rel="stylesheet" type="text/css" href="./General Info - Polygon_files/tablesorter.css">
+    <link rel="stylesheet" type="text/css" href="./General Info - Polygon_files/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./General Info - Polygon_files/prettify.css">
+    <link rel="stylesheet" type="text/css" href="./General Info - Polygon_files/googiespell.css">
+    <link rel="stylesheet" type="text/css" href="./General Info - Polygon_files/header.css">
+    <link rel="stylesheet" type="text/css" href="./General Info - Polygon_files/footer.css">
+    <title>General Info - Polygon</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://polygon.codeforces.com/image/apple-touch-icon.png?ccid=2747baf0d226be0c59e09c7591eccd99">
+    <link rel="icon" type="image/png" href="https://polygon.codeforces.com/image/favicon-32x32.png?ccid=2747baf0d226be0c59e09c7591eccd99" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://polygon.codeforces.com/image/favicon-16x16.png?ccid=2747baf0d226be0c59e09c7591eccd99" sizes="16x16">
+    <link rel="manifest" href="https://polygon.codeforces.com/image/manifest.json?ccid=2747baf0d226be0c59e09c7591eccd99">
+    <link rel="mask-icon" href="https://polygon.codeforces.com/image/safari-pinned-tab.svg?ccid=2747baf0d226be0c59e09c7591eccd99" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" type="text/css" href="./General Info - Polygon_files/prettify(1).css"></head>
+<body><span style="display:none;" class="ccid" data-value="2747baf0d226be0c59e09c7591eccd99">&nbsp;</span>
+<span style="display:none" id="session">33ced7a433597f5219b74d713d0ecc040b851991</span>
+<span style="display:none" id="problemId"></span>
+<script src="./General Info - Polygon_files/jquery-1.8.3.js.download" language="javascript" type="text/javascript"></script>
+<script src="./General Info - Polygon_files/jquery.drafts.js.download" language="javascript" type="text/javascript"></script>
+<script src="./General Info - Polygon_files/polygon.js.download" language="javascript" type="text/javascript"></script>
+
+<script src="./General Info - Polygon_files/jquery.tablesorter.min.js.download" language="javascript" type="text/javascript"></script>
+<script type="text/javascript" language="JavaScript" src="./General Info - Polygon_files/jquery.autocomplete.pack.js.download"></script>
+<script type="text/javascript" language="JavaScript" src="./General Info - Polygon_files/jquery.clickToPopup.js.download"></script>
+<script type="text/javascript" src="./General Info - Polygon_files/sjcl.js.download"></script>
+<script src="./General Info - Polygon_files/jquery.autoresize.js.download" language="javascript" type="text/javascript"></script>
+<script src="./General Info - Polygon_files/AJS.js.download" language="javascript" type="text/javascript"></script>
+<script src="./General Info - Polygon_files/googiespell.js.download" language="javascript" type="text/javascript"></script>
+<script src="./General Info - Polygon_files/cookiesupport.js.download" language="javascript" type="text/javascript"></script>
+<div class="button-up" style="z-index: 1000; opacity: 0.7; width: 18px; height: 100%; position: fixed; left: 0px; top: 0px; cursor: pointer; text-align: center; line-height: 30px; color: rgb(211, 219, 228); font-weight: bold; font-size: 18px;">
+    <i class="fa fa-arrow-circle-up"></i>
+</div>
+<script type="text/javascript">
+    window.onbeforeunload = "Are you sure you want to leave polygon?";
+
+    window.getCcid = function() {
+        var meta = $("meta[name='ccid']").attr("content");
+        if (meta && meta.length === 32) {
+            return meta;
+        }
+
+        var span = $("span.ccid").attr("data-value");
+        if (span && span.length === 32) {
+            return span;
+        }
+
+        return undefined;
+    };
+
+    window.setDocumentLocation = function(link) {
+        var ccid = getCcid();
+
+        if (ccid && link.indexOf("ccid=") < 0 && link.indexOf("#") < 0) {
+            if (link.indexOf("?") < 0) {
+                link += "?ccid=" + ccid;
+            } else {
+                link += "&ccid=" + ccid;
+            }
+        }
+
+        document.location.href = link;
+    };
+
+    $(function () {
+        $.ajaxPrefilter(function(options, originalOptions, xhr) {
+            var ccid = getCcid();
+
+            if (ccid) {
+                var data = originalOptions.data;
+                if (originalOptions.data !== undefined) {
+                    if (Object.prototype.toString.call(originalOptions.data) === '[object String]') {
+                        data = $.deparam(originalOptions.data);
+                    }
+                } else {
+                    data = {};
+                }
+                options.data = $.param($.extend(data, { ccid: ccid }));
+            }
+        });
+
+        $.ajaxSetup({ scriptCharset: "utf-8" ,contentType: "application/x-www-form-urlencoded; charset=UTF-8", headers: {
+            'ccid': getCcid()
+        }});
+
+        var sessionText = $("#session").text();
+
+        if (sessionText.length > 0) {
+            $("a").each(function () {
+                if ($(this).hasClass("outbound-link")) {
+                    return;
+                }
+
+                var href = $(this).attr("href");
+
+                if (href.startsWith("/") || href.startsWith("https://polygon.codeforces.com") || href.indexOf(":") < 0) {
+                    if (href.indexOf("session=") < 0 && href.indexOf("#") < 0 && !$(this).hasClass('noSessionLink')) {
+                        if (href.indexOf("?") < 0) {
+                            href += "?session=" + sessionText;
+                        } else {
+                            href += "&session=" + sessionText;
+                        }
+                    }
+
+                    $(this).attr("href", href);
+                }
+            });
+
+            $("form").submit(function () {
+                $(this).append("<input type=\"hidden\" name=\"session\" value=\"" + sessionText + "\"/>");
+            });
+        }
+
+        $(".outbound-link").each(function() {
+            $(this).attr("href", $(this).attr("data-href-outbound"));
+        });
+
+        $(".title-clickable").css("color", "gray").css("cursor", "pointer").click(function() {
+            alert($(this).attr("title"));
+        });
+    });
+
+    window.popup = function(title, width, height, onClose) {
+        width = width || "50%";
+        height = height || "23em";
+        $("body").append("<div class='popup' style='width:" + width + ";height:" + height + ";'></div>");
+        var result = $("body div.popup:last");
+        result.css("top", ($(window).height() - result.height()) / 3 + 'px');
+        result.css("left", ($(window).width() - result.width()) / 2 + 'px');
+        var close = $("<div class=\"popup-close\"><img src=\"" + "https://polygon.codeforces.com" + "/image/close-10x10.png\"/></div>")
+        close.find("img").css("cursor", "pointer").attr("title", "Close popup").click(function() {
+            result.remove();
+            if (onClose !== undefined) {
+                onClose();
+            }
+        });
+        result.append(close);
+        result.append("<div class='title'>" + title + "</div>");
+
+        document.addEventListener("keyup", function (event) {
+            if (event.which === 27) {
+                result.remove();
+                if (onClose !== undefined) {
+                    onClose();
+                }
+            }
+        });
+
+        return result;
+    }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ($(document).width() < 1600) {
+            $('.button-up').css('width', '18px').css('line-height', '30px').css('font-size', '18px');
+        }
+
+        if ($(document).width() >= 1300) {
+            $ (window).scroll(function () {
+                if ($ (this).scrollTop () > 100) {
+                    $ ('.button-up').fadeIn();
+                } else {
+                    $ ('.button-up').fadeOut();
+                }
+            });
+
+            $('.button-up').click(function () {
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 500);
+                return false;
+            }).hover(function () {
+                $(this).animate({
+                    'opacity':'1'
+                }).css({'background-color':'#e7ebf0','color':'#6a86a4'});
+            }, function () {
+                $(this).animate({
+                    'opacity':'0.7'
+                }).css({'background':'none','color':'#d3dbe4'});;
+            });
+        }
+    });
+</script>
+
+    <div style="max-width:1400px;margin:0 auto;">
+            <div class="color-box red-box">
+                <div class="t t1">&nbsp;</div>
+                <div class="t t2">&nbsp;</div>
+                <div class="t t3">&nbsp;</div>
+                <div class="t t4">&nbsp;</div>
+                <div class="text" style="padding-left: 2em; padding-right: 2em; text-align: center;">
+                    Your password is extremely weak or leaked (according to <a href="https://haveibeenpwned.com/">https://haveibeenpwned.com/</a>).
+                    Please, change it to new strong password ASAP.
+                </div>
+            </div>
+
+<script type="text/javascript">
+    $(function() {
+        setTimeout(function() {
+            $("#top-messagebox").hide(500);
+        }, 10000);
+    });
+</script>
+
+<div id="header">
+    <div class="info">
+        <table>
+            <tbody><tr>
+                <td>
+                    <img src="./General Info - Polygon_files/polygon-logo.png" alt="" style="position:relative;top:0.5em;left:3px;">
+                    <div class="mission">Professional way to prepare programming contest problem</div>
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+    <div class="top-menu">
+            <strong>Salah Mostafa</strong> |
+            <a href="https://polygon.codeforces.com/settings?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Settings</a> |
+            <a href="https://polygon.codeforces.com/myIssues?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">My Issues</a>
+ |
+            <a href="https://polygon.codeforces.com/logout?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Logout</a> |
+            <a href="https://polygon.codeforces.com/static/polygon.rtf?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Help</a>
+        
+    </div>
+    <br style="clear: both;">
+</div>
+<div class="color-box blue-box" style="">
+    <div class="t t1">&nbsp;</div>
+    <div class="t t2">&nbsp;</div>
+    <div class="t t3">&nbsp;</div>
+    <div class="t t4">&nbsp;</div>
+    <div class="text">
+<div class="page-name">
+        General Info
+</div>
+<div class="menu" style="font-size: 12px;position: relative;top: 0.25em;">
+            <span>
+                <a href="https://polygon.codeforces.com/access?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Manage access</a>
+            </span>
+            <span>
+                <a href="https://polygon.codeforces.com/package?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Packages</a>
+            </span>
+            <span>
+                <a href="https://polygon.codeforces.com/issues?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Issues</a>
+            </span>
+            <span>
+                <a href="https://polygon.codeforces.com/invocations?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Invocations</a>
+            </span>
+            <span>
+                <a href="https://polygon.codeforces.com/solutions?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Solution files</a>
+            </span>
+            <span>
+                <a href="https://polygon.codeforces.com/stresses?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Stresses</a>
+            </span>
+            <span>
+                <a href="https://polygon.codeforces.com/tests?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Tests</a>
+            </span>
+            <span>
+                <a href="https://polygon.codeforces.com/validation?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Validator</a>
+            </span>
+            <span>
+                <a href="https://polygon.codeforces.com/checker?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Checker</a>
+            </span>
+            <span>
+                <a href="https://polygon.codeforces.com/files?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Files</a>
+            </span>
+            <span>
+                <a href="https://polygon.codeforces.com/statements?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Statement</a>
+            </span>
+            <span class="active">
+                <a href="https://polygon.codeforces.com/generalInfo?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">General info</a>
+            </span>
+            <span>|</span>
+            <span>
+                <a href="https://polygon.codeforces.com/problems?ccid=2747baf0d226be0c59e09c7591eccd99" class="noSessionLink">View Problems</a>
+            </span>
+</div>
+<br style="clear: both;">
+    </div>
+</div>
+<table>
+    <tbody><tr>
+        <td width="100%" class="" style="vertical-align:text-top;">
+<style>
+    textarea.textarea {
+        width: 97% !important;
+        box-sizing: border-box;
+    }
+
+    #descriptionAndTutorialTable {
+        width: 100%;
+        margin-left: 1em;
+        box-sizing: border-box;
+    }
+
+    #descriptionAndTutorialTable .fieldName {
+        width: 10em;
+    }
+</style>
+
+<div class="around" style="position:relative;">
+<div class="color-box brown-box" style="width:10em;position:absolute;right:0;top:-2em;text-align:center;">
+    <div class="t t1">&nbsp;</div>
+    <div class="t t2">&nbsp;</div>
+    <div class="t t3">&nbsp;</div>
+    <div class="t t4">&nbsp;</div>
+    <div class="text">
+    <a href="https://polygon.codeforces.com/advanced?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Advanced</a>
+    </div>
+</div>
+
+<form action="https://polygon.codeforces.com/generalInfo?action=saveProperties" method="post" class="left-form" style="width:100% !important;">
+    <table style="float:right; position:relative; left: 8em; width:50%;margin:1em 1.5em 1em 0;">
+            <tbody><tr>
+                <td><label for="wellFormed">Are&nbsp;tests<br>well-formed?:</label></td>
+                <td>
+                    <input id="wellFormed" width="10" style="width:1em;" type="checkbox" name="wellFormed" checked="checked">
+                </td>
+            </tr>
+<tr class="">
+    <td>&nbsp;</td>
+    <td>
+        <div class="field-notice">
+                        <div style="width:30em;">
+                Check it and your tests will be additionally validated:<br>
+                - each line finishes with EOLN;<br>
+                - doesn't contain characters with codes less than 32;<br>
+                - doesn't contain leading or trailing spaces;<br>
+                - doesn't contain two or more consecutive spaces;<br>
+                - doesn't contain leading or trailing empty lines;<br>
+                - file is not empty.<br>
+            </div>
+
+        </div>
+    </td>
+    </tr>
+
+            <tr>
+                <td><label for="testPointsEnabled">Are&nbsp;test&nbsp;points<br>enabled?:</label></td>
+                <td>
+                    <input id="testPointsEnabled" width="10" style="width:1em;" type="checkbox" name="testPointsEnabled">
+                </td>
+            </tr>
+        </tbody></table>
+        <table style="width:40%;">
+            <colgroup><col style="width:7em;">
+            </colgroup><tbody><tr>
+                <td><label for="inputFile">Input file:</label></td>
+                <td>
+                    <input id="inputFile" name="inputFile" value="stdin" style="width: 200px;">
+                </td>
+            </tr>
+<tr class="under">
+    <td>&nbsp;</td>
+    <td>
+        <div class="field-notice">
+            Input file name or "stdin" for standard input
+        </div>
+    </td>
+    </tr>
+            <tr>
+                <td><label for="outputFile">Output file:</label></td>
+                <td>
+                    <input id="outputFile" name="outputFile" value="stdout" style="width: 200px;">
+                </td>
+            </tr>
+<tr class="under">
+    <td>&nbsp;</td>
+    <td>
+        <div class="field-notice">
+            Output file name or "stdout" for standard output
+        </div>
+    </td>
+    </tr>
+            <tr>
+                <td><label for="timeLimit">Time limit:</label></td>
+                <td>
+                    <input id="timeLimit" name="timeLimit" value="1000" style="width: 200px;"> ms
+                </td>
+            </tr>
+<tr class="under">
+    <td>&nbsp;</td>
+    <td>
+        <div class="field-notice">
+            Time limit per test (between 250 ms and 15000 ms)
+        </div>
+    </td>
+    </tr>
+            <tr>
+                <td><label for="memoryLimit">Memory limit:</label></td>
+                <td>
+                    <input id="memoryLimit" name="memoryLimit" value="256" style="width: 200px;"> MB
+                </td>
+            </tr>
+<tr class="under">
+    <td>&nbsp;</td>
+    <td>
+        <div class="field-notice">
+            Memory limit (between 4 MB and 1024 MB)
+        </div>
+    </td>
+    </tr>
+            <tr>
+                <td>
+                    <label for="interactive">Interactive:</label>
+                </td>
+                <td>
+                    <input type="checkbox" style="width: 13px !important;" id="interactive" name="interactive">
+                    <span style="font-size: 11px; color: #777; position: relative; bottom: 2px;">
+                        <label for="interactive">
+                            Is problem interactive
+                        </label>
+                    </span>
+                </td>
+            </tr>
+        </tbody></table>
+        <div style="text-align:center;">
+            <input style="width: 6em;margin-bottom: 2em;" type="submit" name="Save" value="Save">
+        </div>
+<input type="hidden" name="ccid" value="2747baf0d226be0c59e09c7591eccd99"></form>
+<div class="left-form">
+    <div style="padding:0.5em 1em;">
+        <hr style="color:#eee;">
+    </div>
+    <table style="width:100%;margin:1em;">
+        <colgroup><col style="width:7em;">
+        </colgroup><tbody><tr>
+            <td>Tags:</td>
+            <td>
+                <div style="margin-left:15px;">
+
+<div class="tags">
+<span class="grey-box "><span>implementation</span><img problemid="104771" value="implementation" src="./General Info - Polygon_files/close-10x10.png"></span>
+<span class="grey-box "><span>math</span><img problemid="104771" value="math" src="./General Info - Polygon_files/close-10x10.png"></span>
+
+<span class="grey-box hide" style="display:none;"><span></span><img problemid="104771" value="" src="./General Info - Polygon_files/close-10x10.png"></span>
+<span class="grey-box hide" style="display:none;"><span></span><img problemid="104771" value="" src="./General Info - Polygon_files/close-10x10.png"></span>
+<span class="grey-box hide" style="display:none;"><span></span><img problemid="104771" value="" src="./General Info - Polygon_files/close-10x10.png"></span>
+<span class="grey-box hide" style="display:none;"><span></span><img problemid="104771" value="" src="./General Info - Polygon_files/close-10x10.png"></span>
+<span class="grey-box hide" style="display:none;"><span></span><img problemid="104771" value="" src="./General Info - Polygon_files/close-10x10.png"></span>
+<span class="grey-box hide" style="display:none;"><span></span><img problemid="104771" value="" src="./General Info - Polygon_files/close-10x10.png"></span>
+<span class="grey-box hide" style="display:none;"><span></span><img problemid="104771" value="" src="./General Info - Polygon_files/close-10x10.png"></span>
+<span class="grey-box hide" style="display:none;"><span></span><img problemid="104771" value="" src="./General Info - Polygon_files/close-10x10.png"></span>
+<span class="grey-box hide" style="display:none;"><span></span><img problemid="104771" value="" src="./General Info - Polygon_files/close-10x10.png"></span>
+<span class="grey-box hide" style="display:none;"><span></span><img problemid="104771" value="" src="./General Info - Polygon_files/close-10x10.png"></span>
+<span class="grey-box hide" style="display:none;"><span></span><img problemid="104771" value="" src="./General Info - Polygon_files/close-10x10.png"></span>
+<span style="font-size:11px !important;">
+<a class="add-tag" href="https://polygon.codeforces.com/generalInfo?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991#?ccid=2747baf0d226be0c59e09c7591eccd99">Add&nbsp;tag</a>
+<div style="display:inline;position:relative;">
+    <form method="post" action="https://polygon.codeforces.com/tagAction" style="display:none;" problemid="104771">
+        <input style="height:1.25em;line-height:1.25em;width:15em;" name="tag" autocomplete="off" class="ac_input">
+        <a href="https://polygon.codeforces.com/generalInfo?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991#?ccid=2747baf0d226be0c59e09c7591eccd99">Add</a>
+        <div class="undertext" style="position:absolute;top:1.6em;left:0;font-size:90%;">Use only English, try autocomplete your tag</div>
+    <input type="hidden" name="ccid" value="2747baf0d226be0c59e09c7591eccd99"></form>
+</div>
+</span>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        $(".grey-box img").click(function() {
+            var e = $(this);
+            var problemId = e.attr("problemId");
+            var value = e.attr("value");
+            $.post("tagAction?action=delete", {problemId: problemId, value: value}, function(response) {
+                // No operations
+            });
+            e.parent().hide();
+        });
+        $(".add-tag").click(function() {
+            var e = $(this);
+            e.hide();
+            e.parent().find("form").css("display", "inline").find("input").focus();
+            return false;
+        });
+        $(".tags input[name=tag]").autocomplete("tagAction?action=autocomplete", {
+            delay: 200,
+            width: 200,
+            selectFirst: false
+        });
+        $(".tags form").submit(function() {
+            var e = $(this);
+            var problemId = e.attr("problemId");
+            var value = e.find("input").val();
+            $.post(
+                    "tagAction?action=add",
+            {problemId: problemId, value: value},
+                    function(response) {
+                        $(".ac_results").hide();
+                        // Is OK?
+                        if (response == value) {
+                            var tt = e.parent().parent().parent().find(".hide");
+                            if (tt.size() === 0) {
+                                location.reload();
+                            } else {
+                                var t = $(tt[0]);
+                                t.removeClass("hide");
+                                t.find("span").text(value);
+                                t.find("img").attr("value", value);
+                                t.css("display", "inline");
+                                e.find("input").val("");
+                                e.css("display", "none");
+                                e.parent().parent().find(".add-tag").show();
+                            }
+                        } else {
+                            e.find("div.undertext").html(response);
+                        }
+                    }
+                    );
+            return false;
+        });
+        $(".tags form a").click(function(event) {
+            event.preventDefault();
+            $(this).parent().submit();
+        });
+    });
+</script>
+                </div>
+            </td>
+        </tr>
+     </tbody></table>
+</div>
+<div class="left-form">
+    <div style="padding:0.5em 1em;">
+        <hr style="color:#eee;">
+    </div>
+    <table style="width:100%;margin:1em;">
+        <tbody><tr>
+            <td style="width: 7em;height: 2.5em;">Contests:</td>
+            <td style="font-size:11px!important;height: 2.5em;align-items: center;">
+                <div style="display: inline-block;">
+                    
+                    <a class="add-to-contest" href="https://polygon.codeforces.com/generalInfo?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991#?ccid=2747baf0d226be0c59e09c7591eccd99">Add&nbsp;to&nbsp;Contest</a>
+                    <form action="https://polygon.codeforces.com/generalInfo?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991" method="post" style="display: none;position:relative;" class="add-to-contest-form">
+                        <input name="contestUid" placeholder="Contest UID" style="margin-top:3px;height:1.25em;line-height:1.25em;width:15em;">
+                        <a href="https://polygon.codeforces.com/generalInfo?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991#?ccid=2747baf0d226be0c59e09c7591eccd99">Add</a>
+                        <div class="error__contestUid" style="color: red;position:absolute;top:2.5em;left:0;font-size:90%;"></div>
+                    <input type="hidden" name="ccid" value="2747baf0d226be0c59e09c7591eccd99"></form>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div>
+<form action="https://polygon.codeforces.com/generalInfo?action=saveDescription" method="post" class="form left-form" style="width:100% !important;">
+    <div style="padding:0.5em 1em;">
+        <hr style="color:#eee;">
+    </div>
+    <div class="description-tutorial-content-wrapper" style="margin:1em;">
+        <table id="descriptionAndTutorialTable">
+            <tbody><tr>
+                <td class="fieldName" title="English, LaTeX preferred"><label for="description">Statement sketch:</label></td>
+                <td>
+                    <textarea data-drafts-id="general-description-for-problem-104771-sequence-again" class="textarea support-drafts" rows="5" cols="0" id="description" name="description" style="resize: none; overflow-y: hidden; height: 76px;">You are given a sequence of four integers and Nth integer you should follow the sequence and find the value of Nth. guaranteed that the sequence is arithmetic or geometric or not and if not print -1  
+Note:A sequence is strictly monotonically increasing or strictly monotonically decreasing (u can just using + or - or *)</textarea>
+                <div class="drafts-show-drafts" style="opacity: 0.2; position: absolute; top: 553.713px; left: 958.788px;"><span class="drafts-button drafts-online">Drafts</span></div></td>
+            </tr>
+            <tr>
+                <td class="fieldName" title="English, LaTeX preferred"><label for="tutorial">Tutorial sketch:</label></td>
+                <td>
+                    <textarea data-drafts-id="general-tutorial-for-problem-104771-sequence-again" class="textarea support-drafts" rows="5" cols="0" id="tutorial" name="tutorial" style="resize: none; overflow-y: hidden; height: 76px;">First you can check if sequence (increasing or decreasing) by adding factor or increasing by multiply by factor . 
+then you can loop to the Nth and find the value.</textarea>
+                <div class="drafts-show-drafts" style="opacity: 0.2; position: absolute; top: 646.512px; left: 958.788px;"><span class="drafts-button drafts-online">Drafts</span></div></td>
+            </tr>
+        </tbody></table>
+        <script type="text/javascript">
+            $("#descriptionAndTutorialTable").find("tbody table").each(function () {
+                $(this).css({margin: 0});
+            });
+        </script>
+        <div style="text-align:center;">
+            <input style="width: 6em;" type="submit" name="Save" value="Save">
+        </div>
+    </div>
+<input type="hidden" name="ccid" value="2747baf0d226be0c59e09c7591eccd99"></form>
+</div>
+<script type="text/javascript">
+    $(function() {
+        safeFormsLeave();
+        $("textarea.support-drafts").drafts({url: "/data/draft"});
+    });
+</script>
+
+<script type="text/javascript">
+    $('textarea,input').autoResize({
+        onBeforeResize: function(){
+        },
+        onAfterResize: function(){
+        }
+    });
+
+    $(".show-description-tutorial-form").click(function () {
+        var descriptionTutorialContentWrapper = $(".description-tutorial-content-wrapper");
+        if (descriptionTutorialContentWrapper.is(":hidden")) {
+            descriptionTutorialContentWrapper.show();
+            $(".show-description-tutorial-form").parent().hide();
+        } else {
+            descriptionTutorialContentWrapper.hide();
+        }
+    });
+    $(".add-to-contest").click(function() {
+        $(this).hide();
+        $(".add-to-contest-form").css("display", "inline-block").find("input").focus();
+        return false;
+    });
+    $(".add-to-contest-form a").click(function(event) {
+        event.preventDefault();
+        $(this).parent().submit();
+    });
+    $(".add-to-contest-form").submit(function() {
+        var e = $(this);
+        e.hide();
+        $.post("/generalInfo?action=addToContest", {
+            contestUid: e.find("input[name=contestUid]").val(),
+            session: "33ced7a433597f5219b74d713d0ecc040b851991"},
+            function (response) {
+                if (response["success"] === "true") {
+                    location.reload();
+                } else {
+                    $(".error__contestUid").html(response["error__contestUid"]);
+                }
+            },
+        );
+        e.show();
+        return false;
+    });
+</script>
+        </td>
+        <td style="vertical-align:top;">
+
+
+<div class="color-box blue-box edit-info-box" style="">
+    <div class="t t1">&nbsp;</div>
+    <div class="t t2">&nbsp;</div>
+    <div class="t t3">&nbsp;</div>
+    <div class="t t4">&nbsp;</div>
+    <div class="text">
+<table>
+        <tbody><tr>
+            <td>Problem:            </td>
+            <td><span title="" style="color:black;font-weight:bold;">sequence-again</span><span title="" style=""> (Dobby_)</span><span title="" style="">, id=104771</span></td>
+        </tr>
+        <tr>
+            <td>Note:
+                <sup><i style="color: gray; cursor: pointer;" class="fa fa-question-circle title-clickable" title="Short text note for the problem. It is also visible in problem lists. You can edit it by clicking in the note or double-click problem name in problem lists. You must have WRITE access to the problem to edit note."></i></sup>
+            </td>
+            <td>    <input name="inSummaryBox" type="hidden" value="true">
+        <div class="notes" problemid="104771" style="color: #00C;">
+                click here to add note
+        </div>
+
+        <span class="editNotes" problemid="104771" style="display:none;">
+            <form class="notesForm" action="https://polygon.codeforces.com/generalInfo?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991" method="post">
+                <input name="targetNotes" value="" style="width:11em;">
+            <input type="hidden" name="ccid" value="2747baf0d226be0c59e09c7591eccd99"></form>
+        </span>
+        <div class="field-error" problemid="104771" style="display:none;margin-top: 0.8em;"></div>
+<script type="text/javascript">
+    $(function() {
+        var inSummaryBox = ($("input[name=inSummaryBox]").val() == "true");
+        var submitted = false;
+
+        $(".notes").click(function () {
+            showEditNotes($(this).attr("problemId"));
+        });
+
+        $(".problemName ").dblclick(function() {
+            showEditNotes($(this).attr("problemId"));
+        });
+
+        function showEditNotes(problemId) {
+            $(".notes[problemId='" + problemId + "']").hide();
+            $(".editNotes[problemId='" + problemId + "']").css("display", "").find("input").focus();
+        }
+
+
+        $(".notesForm").submit(function(){
+            var problemId = $(this).closest(".editNotes").attr("problemId");
+
+            var params = {};
+            params["problemId"] = problemId;
+            params["targetNotes"] = $(this).find("input").val();
+            params["submitted"] = true;
+
+            $.post("/problemNotesAction?ccid=2747baf0d226be0c59e09c7591eccd99", params, function (json) {
+                if (json["success"] == "true") {
+                    var targetNotes = params["targetNotes"];
+                    var emptyNotes = false;
+                    var color = "black";
+                    if (!inSummaryBox) {
+                        color = "#888";
+                    }
+                    if (targetNotes == "") {
+                        targetNotes = "click here to add note";
+                        emptyNotes = true;
+                        color = "#00C";
+                    }
+                    if (inSummaryBox || !emptyNotes) {
+                        $(".notes[problemId='" + problemId + "']").text(targetNotes).css("color", color).show();
+                    }
+                    $(".field-error[problemId='" + problemId + "']").css("display", "none");
+                } else {
+                    $(".notes[problemId='" + problemId + "']").show();
+                    $(".field-error[problemId='" + problemId + "']").text(json["error"]).css("display", "");
+                }
+                $(".editNotes[problemId='" + problemId + "']").css("display", "none");
+            }, "json");
+            return false;
+        });
+    });
+    </script>
+</td>
+        </tr>
+        <tr>
+            <td>Well-formed:            </td>
+            <td><span title="" style="">true</span></td>
+        </tr>
+    
+        <tr>
+            <td>Statements:</td>
+            <td><a href="https://polygon.codeforces.com/statements?lang=english&amp;ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991" title="" style="">english</a></td>
+        </tr>
+        <tr>
+            <td>Checker:</td>
+            <td><span title="" style="">std::ncmp.cpp</span><span title="" style="">&nbsp;(</span><a href="https://polygon.codeforces.com/checker?action=view&amp;ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991" title="" style="">0</a><span title="" style="">)</span></td>
+        </tr>
+        <tr>
+            <td>Validator:</td>
+            <td><a href="https://polygon.codeforces.com/validation?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991" title="Please, specify validator" style="color:red;font-weight:bold;">None</a><span title="" style="">&nbsp;(</span><a href="https://polygon.codeforces.com/validation?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991" title="Please, add validator tests" style="color:orange;font-weight:bold;">none</a><span title="" style="">)</span></td>
+        </tr>
+        <tr>
+            <td>Tests:</td>
+            <td><a href="https://polygon.codeforces.com/tests?testset=tests&amp;ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991" title="" style="">tests</a><span title="" style="">&nbsp;(</span><span title="" style="">203</span><span title="" style="">)</span></td>
+        </tr>
+        <tr>
+            <td>Solutions:</td>
+            <td><a href="https://polygon.codeforces.com/modify?type=solutions&amp;file=sol.cpp&amp;back=eNoNyjEKwzAMBdDbdI1kWVH_EDr3GLYkl0BwoL4_tG9-2ydnftv1nuN-rVzrvOch4hnWqojChhZGtxrGEpTuVKk_lQF-uJ9xFKvW26AoZe9JrkiCm4L_OYAfCvQdbQ&amp;ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991" title="Model solution" style="">sol.cpp</a><span title="" style="">&nbsp;(</span><a href="https://polygon.codeforces.com/solutions?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991" title="total count / correct count" style="">1/1</a><span title="" style="">)</span></td>
+        </tr>
+
+            <tr>
+                <td>Package:</td>
+                <td><span title="" style="">for revision 4</span></td>
+            </tr>
+
+    <tr>
+        <td>Verification:</td>
+        <td>
+                (<a id="start-verification" href="https://polygon.codeforces.com/generalInfo?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991#?ccid=2747baf0d226be0c59e09c7591eccd99">start</a>)
+        </td>
+    </tr>
+</tbody></table>
+<div style="text-align:right;">
+        <a id="show-all-warnings" style="color:orange;font-weight:bold;" href="https://polygon.codeforces.com/warnings?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Show warnings</a>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#start-verification").click(function () {
+            $.post("/data/verification?action=startVerification", {session: "33ced7a433597f5219b74d713d0ecc040b851991"}, function (response) {
+                location.reload();
+            });
+            return false;
+        });
+        $("#abort-verification").click(function () {
+            $.post("/data/verification?action=abortVerification", {session: "33ced7a433597f5219b74d713d0ecc040b851991"}, function (response) {
+                location.reload();
+            });
+            return false;
+        });
+    });
+</script>
+
+    </div>
+</div>
+
+<div class="color-box blue-box edit-info-box" style="">
+    <div class="t t1">&nbsp;</div>
+    <div class="t t2">&nbsp;</div>
+    <div class="t t3">&nbsp;</div>
+    <div class="t t4">&nbsp;</div>
+    <div class="text">
+    <table>
+        <tbody><tr>
+            <td>Access:</td>
+            <td>Write:7, Read:3</td>
+        </tr>
+        <tr>
+            <td>Access Type:</td>
+            <td>WRITE</td>
+        </tr>
+        <tr>
+            <td>Problem revision:</td>
+            <td>
+                <table>
+                    <tbody><tr>
+                        <td style="padding: 0; padding-right: 0.5em;">
+                            <div id="problem-revision" style=")">
+                                4
+                            </div>
+                        </td>
+                        <td class="bracket" style="display: none;padding:0;">(</td>
+                        <td style="padding: 0;">
+                            <a id="change-log-link" href="https://polygon.codeforces.com/generalInfo?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991#?ccid=2747baf0d226be0c59e09c7591eccd99"></a>
+                        </td>
+                        <td class="bracket" style="display: none;padding:0;">)</td>
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+        <tr>
+            <td>Working copy revision:</td>
+            <td id="working-copy-revision">
+                4
+            </td>
+        </tr>
+        <tr>
+            <td>Invokers waiting:</td>
+            <td>60</td>
+        </tr>
+    </tbody></table>
+    <div style="text-align:right;">
+        <a href="https://polygon.codeforces.com/changes?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">View changes</a>
+    </div>
+    <div style="font-size:11px;text-align:right;color:gray;overflow-wrap:break;word-break: break-all;padding-top:5px;">
+        https://polygon.codeforces.com/p9TPz9i/Dobby_/sequence-again
+    </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        setInterval(function(){
+            $.post("/problemRevisionAction?ccid=2747baf0d226be0c59e09c7591eccd99&session=33ced7a433597f5219b74d713d0ecc040b851991&action=getLastRevision&problemId=104771", function(json) {
+                var lastRevision = parseInt(json["lastRevision"]);
+                var workingCopyRevision = parseInt($("#working-copy-revision").text());
+                if (lastRevision > workingCopyRevision) {
+                    $("#problem-revision").css("color", "red").css("font-weight", "bold").text(lastRevision);
+                    $("#change-log-link").text("change log").attr("href", "/changes?ccid=2747baf0d226be0c59e09c7591eccd99&session=33ced7a433597f5219b74d713d0ecc040b851991&action=revisionChangeLog");
+                    $(".bracket").css("display", "");
+                }
+            });
+            return false;
+        }, 30000);
+    });
+</script>
+
+<div class="color-box blue-box edit-info-box" style="">
+    <div class="t t1">&nbsp;</div>
+    <div class="t t2">&nbsp;</div>
+    <div class="t t3">&nbsp;</div>
+    <div class="t t4">&nbsp;</div>
+    <div class="text">
+<table>
+</table>
+<a href="https://polygon.codeforces.com/update-working-copy?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991" style="float:left;padding-left:0.5em;">Update Working Copy</a>
+<div style="text-align:right;">
+            <a href="https://polygon.codeforces.com/edit-commit?ccid=2747baf0d226be0c59e09c7591eccd99&amp;session=33ced7a433597f5219b74d713d0ecc040b851991">Commit Changes</a>
+</div>
+
+    </div>
+</div>
+        </td>
+    </tr>
+</tbody></table>
+<div class="footer">
+    <div>Polygon 0.2-r1511 (c) Copyright 2009-2020 Mike Mirzayanov</div>
+    <div>Platform for creating programming competition problems</div>
+    <div>Judging on: Intel(R) Core(TM) i3-8100 CPU @ 3.60GHz</div>
+    <div>Execution time: 190 ms.</div>
+</div>
+    </div><arclones><span class="ar1606330885063" tabindex="-1" style="line-height: normal; text-decoration: none solid rgb(0, 0, 0); letter-spacing: 0px; font-size: 13.3333px; font-family: arial, sans-serif; font-style: normal; font-weight: 400; text-transform: none; text-align: start; direction: ltr; word-spacing: 0px; padding: 0px 1px; width: auto; position: absolute; top: -9999px; left: -9999px; opacity: 0; overflow: hidden; white-space: nowrap;">stdin</span><span class="ar1606330885063" tabindex="-1" style="line-height: normal; text-decoration: none solid rgb(0, 0, 0); letter-spacing: 0px; font-size: 13.3333px; font-family: arial, sans-serif; font-style: normal; font-weight: 400; text-transform: none; text-align: start; direction: ltr; word-spacing: 0px; padding: 0px 1px; width: auto; position: absolute; top: -9999px; left: -9999px; opacity: 0; overflow: hidden; white-space: nowrap;">stdout</span><span class="ar1606330885063" tabindex="-1" style="line-height: normal; text-decoration: none solid rgb(0, 0, 0); letter-spacing: 0px; font-size: 13.3333px; font-family: arial, sans-serif; font-style: normal; font-weight: 400; text-transform: none; text-align: start; direction: ltr; word-spacing: 0px; padding: 0px 1px; width: auto; position: absolute; top: -9999px; left: -9999px; opacity: 0; overflow: hidden; white-space: nowrap;">1000</span><span class="ar1606330885063" tabindex="-1" style="line-height: normal; text-decoration: none solid rgb(0, 0, 0); letter-spacing: 0px; font-size: 13.3333px; font-family: arial, sans-serif; font-style: normal; font-weight: 400; text-transform: none; text-align: start; direction: ltr; word-spacing: 0px; padding: 0px 1px; width: auto; position: absolute; top: -9999px; left: -9999px; opacity: 0; overflow: hidden; white-space: nowrap;">256</span><textarea data-drafts-id="general-description-for-problem-104771-sequence-again" class="textarea support-drafts ar1606330885063" rows="5" cols="0" style="resize: none; overflow: hidden; line-height: normal; text-decoration: none solid rgb(0, 0, 0); letter-spacing: 0px; font-size: 13.3333px; font-family: monospace; font-style: normal; font-weight: 400; text-transform: none; text-align: start; direction: ltr; word-spacing: 0px; padding: 2px; width: 634px; position: absolute; top: -9999px; left: -9999px; opacity: 0; height: 0px;" tabindex="-1">You are given a sequence of four integers and Nth integer you should follow the sequence and find the value of Nth. guaranteed that the sequence is arithmetic or geometric or not and if not print -1  
+Note:A sequence is strictly monotonically increasing or strictly monotonically decreasing (u can just using + or - or *)</textarea><textarea data-drafts-id="general-tutorial-for-problem-104771-sequence-again" class="textarea support-drafts ar1606330885063" rows="5" cols="0" style="resize: none; overflow: hidden; line-height: normal; text-decoration: none solid rgb(0, 0, 0); letter-spacing: 0px; font-size: 13.3333px; font-family: monospace; font-style: normal; font-weight: 400; text-transform: none; text-align: start; direction: ltr; word-spacing: 0px; padding: 2px; width: 634px; position: absolute; top: -9999px; left: -9999px; opacity: 0; height: 0px;" tabindex="-1">First you can check if sequence (increasing or decreasing) by adding factor or increasing by multiply by factor . 
+then you can loop to the Nth and find the value.</textarea></arclones>
+
+
+<div class="drafts-prototype drafts-show-drafts"><span class="drafts-button drafts-online">Drafts</span></div><div class="drafts-popup"><div class="drafts-close">×</div><h1>Drafts</h1><div class="drafts-entries"></div></div></body></html>

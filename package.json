@@ -1,5 +1,5 @@
 {
-  "name": "polygon_cf",
+  "name": "cf_polygon",
   "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
@@ -18,7 +18,8 @@
     "build": "tsc",
     "start:dev": "ts-node src/index.ts",
     "start": "node build/index.js",
-    "revision_chromium": "npm i puppeteer"
+    "revision_chromium": "npm i puppeteer",
+    "killall": "killall -s KILL node"
   },
   "author": "",
   "license": "MIT"

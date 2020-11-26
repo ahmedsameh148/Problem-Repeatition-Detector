@@ -18,163 +18,183 @@ const delay = (time) => {
     });
 }
 
-const run = async (headless: boolean = false, timeout = 0) => {
+const run = async (headless: boolean = false) => {
 
     const browser = await puppeteer.launch({ headless: headless, executablePath: process.env.Chrome });
 
-    const polyLogin = async () => {
+    return browser;
+};
 
-        const polyPage = (await browser.pages())[0];
+const polyLogin = async (browser, timeout = 0) => {
 
-        await polyPage.goto(polyLoginUrl, { waitUntil: 'load', timeout: timeout });
+    const polyPage = await browser.newPage();
 
-        const polyLoginForm = await polyPage.$x(ployLoginXpath + 'input');
+    await polyPage.goto(polyLoginUrl, { waitUntil: 'load', timeout: timeout });
 
-        if (polyLoginForm.length < 2) {
+    const polyLoginForm = await polyPage.$x(ployLoginXpath + 'input');
 
-            console.log('polygon - login form is not found');
+    if (polyLoginForm.length < 2) {
 
-            return;
-        }
+        console.log('polygon - login form is not found');
 
-        await polyLoginForm[0].type(process.env.POLYGONE_USERNAME);
-        await polyLoginForm[1].type(process.env.POLYGONE_PASSWORD);
-
-        const check = await (await polyLoginForm[2].getProperty('checked')).jsonValue();
-
-        if (!check && rememberMe) {
-
-            await polyLoginForm[2].click();
-        }
-
-        await polyPage.keyboard.press('Enter');
-
-        await delay(3000);
-
-        const [send_anyway] = await polyPage.$x('//button[contains(., "Send anyway")]');
-
-        if (send_anyway) {
-
-            await send_anyway.click();
-        }
-
-        await polyPage.waitForNavigation({ waitUntil: 'networkidle0' });
-
-        return polyPage;
+        return;
     }
 
+    await polyLoginForm[0].type(process.env.POLYGONE_USERNAME);
+    await polyLoginForm[1].type(process.env.POLYGONE_PASSWORD);
 
-    const cfLogin = async () => {
+    const check = await (await polyLoginForm[2].getProperty('checked')).jsonValue();
 
-        const cfPage = await browser.newPage();
-        await cfPage.goto(cfLoginUrl, { waitUntil: 'load', timeout: timeout });
+    if (!check && rememberMe) {
 
-        const cfLoginForm = await cfPage.$x(cfLoginXpath + 'input');
-        const formCheckbox = await cfPage.$x(cfLoginXpath + 'label/input');
-
-        if (cfLoginForm.length < 2) {
-
-            console.log('codeforces - login form is not found');
-
-            return;
-        }
-
-        await cfLoginForm[0].type(process.env.CF_USERNAME);
-        await cfLoginForm[1].type(process.env.CF_PASSWORD);
-
-        const check = await (await formCheckbox[0].getProperty('checked')).jsonValue();
-
-        if (!check && rememberMe) {
-
-            await formCheckbox[0].click();
-        }
-
-        await cfPage.keyboard.press('Enter');
-        await cfPage.waitForNavigation({ waitUntil: 'networkidle0' });
-
-        return cfPage;
+        await polyLoginForm[2].click();
     }
 
-    const cfParseStatements = async (sep) => {
+    await polyPage.keyboard.press('Enter');
 
-        const cfPage = await cfLogin();
+    await delay(3000);
 
-        const problemsettingUrl = `http://codeforces.com/contests/writer/${process.env.CF_USERNAME}`
+    const [send_anyway] = await polyPage.$x('//button[contains(., "Send anyway")]');
 
-        await cfPage.goto(problemsettingUrl, { waitUntil: 'load', timeout: timeout });
+    if (send_anyway) {
 
-        const enterGroup = await cfPage.$x('//a[contains(., "Enter »")]');
+        await send_anyway.click();
+    }
 
-        const problemsUrl = await Promise.all(enterGroup.map(async (a) => {
-            return await (await a.getProperty('href')).jsonValue() + '/problems';
-        }));
+    await polyPage.waitForNavigation({ waitUntil: 'networkidle0' });
 
-        const contestsProblem = await Promise.all(problemsUrl.map(async (url) => {
-
-            (await cfPage.goto(url, { waitUntil: 'load', timeout: timeout }));
-            const problemsBody = (await cfPage.$x('//div[@class="problem-statement"]'));
-
-            return problemsBody;
-        }));
+    return polyPage;
+}
 
 
-        const strFormat = (str: string) => {
+const cfLogin = async (browser, timeout = 0) => {
 
-            return str.replace(/\n[0-9]/g, '');
-        };
+    const cfPage = (await browser.pages())[0];
 
-        const parseProblemBody = async (body, sep = '\n') => {
+    await cfPage.goto(cfLoginUrl, { waitUntil: 'load', timeout: timeout });
 
-            const classes = ['header', 'input-specification', 'output-specification', 'sample-tests', 'note'];
-            const problem = {};
+    const cfLoginForm = await cfPage.$x(cfLoginXpath + 'input');
+    const formCheckbox = await cfPage.$x(cfLoginXpath + 'label/input');
 
-            for (let i = 0; i < classes.length; i++) {
+    if (cfLoginForm.length < 2) {
 
-                const xpath = `div[@class="${classes[i]}"]`;
-                const specNode = await body.$x(xpath);
-                let text = ''
+        console.log('codeforces - login form is not found');
 
-                for (let j = 0; j < specNode.length; j++) {
-                    let val = await cfPage.evaluate(el => el.innerText, specNode[j]);
-                    text += val + sep;
-                }
+        return;
+    }
 
-                problem[classes[i].replace('-', '_')] = strFormat(text);
-            }
+    await cfLoginForm[0].type(process.env.CF_USERNAME);
+    await cfLoginForm[1].type(process.env.CF_PASSWORD);
 
-            const pNode = await body.$x('div[not(@class)]/child::*');
-            let text = '';
+    const check = await (await formCheckbox[0].getProperty('checked')).jsonValue();
 
-            for (let i = 0; i < pNode.length; i++) {
-                let val = await cfPage.evaluate(el => el.innerText, pNode[i]);
+    if (!check && rememberMe) {
+
+        await formCheckbox[0].click();
+    }
+
+    await cfPage.keyboard.press('Enter');
+    await cfPage.waitForNavigation({ waitUntil: 'networkidle0' });
+
+    return cfPage;
+}
+
+const cfParseStatements = async (cfPage, timeout = 0, sep = ' ') => {
+
+    const problemsettingUrl = `http://codeforces.com/contests/writer/${process.env.CF_USERNAME}`
+
+    await cfPage.goto(problemsettingUrl, { waitUntil: 'load', timeout: timeout });
+
+    const enterGroup = await cfPage.$x('//a[contains(., "Enter »")]');
+
+    const problemsUrl = await Promise.all(enterGroup.map(async (a) => {
+        return await (await a.getProperty('href')).jsonValue() + '/problems';
+    }));
+
+    const contestsProblem = await Promise.all(problemsUrl.map(async (url) => {
+
+        (await cfPage.goto(url, { waitUntil: 'load', timeout: timeout }));
+        const problemsBody = (await cfPage.$x('//div[@class="problem-statement"]'));
+
+        return problemsBody;
+    }));
+
+
+    const strFormat = (str: string) => {
+
+        return str.replace(/\n[0-9]/g, '');
+    };
+
+    const parseProblemBody = async (body) => {
+
+        const classes = ['header', 'input-specification', 'output-specification', 'sample-tests', 'note'];
+        const problem = {};
+
+        for (let i = 0; i < classes.length; i++) {
+
+            const xpath = `div[@class="${classes[i]}"]`;
+            const specNode = await body.$x(xpath);
+            let text = ''
+
+            for (let j = 0; j < specNode.length; j++) {
+                let val = await cfPage.evaluate(el => el.innerText, specNode[j]);
                 text += val + sep;
             }
 
-            problem['statement'] = strFormat(text);
-
-            return problem;
-        };
-
-        const problems = [];
-
-        for (let i = 0; i < contestsProblem.length; i++) {
-            for (let j = 0; j < contestsProblem[i].length; j++) {
-
-                const problem = await parseProblemBody(contestsProblem[i][j], sep);
-
-                problems.push(problem);
-            }
+            problem[classes[i].replace('-', '_')] = strFormat(text);
         }
 
-        return problems;
+        const pNode = await body.$x('div[not(@class)]/child::*');
+        let text = '';
+
+        for (let i = 0; i < pNode.length; i++) {
+            let val = await cfPage.evaluate(el => el.innerText, pNode[i]);
+            text += val + sep;
+        }
+
+        problem['statement'] = strFormat(text);
+
+        return problem;
+    };
+
+    const problems = [];
+
+    for (let i = 0; i < contestsProblem.length; i++) {
+        for (let j = 0; j < contestsProblem[i].length; j++) {
+
+            const problem = await parseProblemBody(contestsProblem[i][j]);
+
+            problems.push(problem);
+        }
     }
 
-    const polyPage = await polyLogin();
-    const cfProblems = await cfParseStatements(' ');
+    return problems;
+}
 
-    browser.close();
+const polygonParseStatement = async (polyPage, url, timeout = 0, sep = ' ') => {
 
-    return cfProblems;
-};
+    const xpath = '//div/table/tbody/tr/td/form/div/table/tbody/tr/td/textarea';
 
-export { run };
+    await polyPage.goto(url, { waitUntil: 'load', timeout: timeout });
+
+    const body = await polyPage.$x(xpath);
+
+    const parseProblem = async (textareaNode) => {
+
+        const classes = ['statement', 'input_specification', 'output_specification', 'note', 'tutorial'];
+        let problem = {};
+
+        for (let i = 0; i < textareaNode.length; i++) {
+
+            problem[classes[i]] = await polyPage.evaluate(el => el.value, textareaNode[i]);
+        }
+
+        return problem;
+    }
+
+    const problem = await parseProblem(body);
+
+    return problem;
+}
+
+export { run, polyLogin, cfLogin, polygonParseStatement, cfParseStatements };
